@@ -82,7 +82,7 @@ knapsack:
                 push %ebx
 
                 movl values(%ebp), %ecx
-                leal ws(%ecx, edx, ws) %ecx
+                leal ws(%ecx, %edx, ws) %ecx
                 push %ecx
 
                 movl num_items(%ebp), %edx
@@ -92,11 +92,10 @@ knapsack:
 
                 movl capacity(%ebp), %esi
                 subl %eax, %esi
-                psuh %esi
+                push %esi
 
                 call knapsack
                 addl $5*ws, %esp
-                
                 
                 push %edi
                 push %esi 
